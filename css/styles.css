@@ -204,16 +204,11 @@ nav h1 a {
 #single-maincontent {
   display: grid;
   grid-gap: 2em;
-  grid-template-columns: auto 40vw;
+  grid-template-columns: 1fr;
 }
 .inside #single-map-container {
-  grid-column-start: 2;
+  height: 50vh;
   background: blue none repeat scroll 0 0;
-  /*height: 87%;*/
-  position: fixed;
-  right: 0;
-  width: 40vw;
-  height: 100vh;
 }
 .inside #map {
   background-color: #ccc;
@@ -253,11 +248,13 @@ nav h1 a {
   grid-column: 1/2;
   grid-row: 1/2;
   padding-left: 2em;
+  padding-right: 2em;
 }
 #reviews-container {
   grid-column: 1/2;
   grid-row: 2/3;
   padding-left: 2em;
+  padding-right: 2em;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -296,6 +293,32 @@ nav h1 a {
 @media screen and (min-width: 700px) {
   #restaurants-list {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #single-maincontent {
+    grid-gap: 2em;
+    grid-template-columns: auto 40vw;
+  }
+  .inside #single-map-container {
+    grid-column-start: 2;
+    background: blue none repeat scroll 0 0;
+    position: fixed;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
+  }
+  #restaurant-container {
+    margin-top: 20vh;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding-left: 2em;
+  }
+  #reviews-container {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding-left: 2em;
   }
 }
 
