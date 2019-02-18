@@ -330,6 +330,7 @@ nav h1 a {
     height: 100vh;
   }
   #restaurant-container {
+    margin: 12em 0 1em
     grid-column: 1/2;
     grid-row: 1/2;
     padding-left: 2em;
