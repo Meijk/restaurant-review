@@ -171,7 +171,8 @@ createRestaurantHTML = (restaurant) => {
   container.className = 'restaurant-item-details';
 
   const name = document.createElement('h1');
-  name.innerHTML = restaurant.name;
+  name.innerHTML = `<a href="${DBHelper.urlForRestaurant(restaurant)}">${restaurant.name}</a>`;
+  name.classList.add('restaurant-list__title');
   container.append(name);
 
   const neighborhood = document.createElement('p');
@@ -184,8 +185,10 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute('tabindex', '-1');
   more.href = DBHelper.urlForRestaurant(restaurant);
-  container.append(more)
+  more.classList.add('restaurant-list__link');
+  container.append(more);
 
   li.append(container);
 
