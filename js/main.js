@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
+  document.querySelector('#map').setAttribute('tabindex', '-1');
 });
 
 /**
@@ -80,9 +81,9 @@ initMap = () => {
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoibWVpamsiLCJhIjoiY2pzOWNzMmZyMGRoZTQ5bWF4d2tibnk0NCJ9.2DuUyco9sJVtZTcU1RXy8g',
     maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/" tabindex=-1>OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/" tabindex=-1>CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/" tabindex=-1>Mapbox</a>',
     id: 'mapbox.streets'
   }).addTo(newMap);
 
