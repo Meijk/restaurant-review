@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
   document.querySelector('#map').setAttribute('tabindex', '-1');
+  document.querySelector('.leaflet-control-attribution.leaflet-control a').setAttribute('tabindex', '-1');
 });
 
 /**
