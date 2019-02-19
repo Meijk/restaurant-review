@@ -146,6 +146,10 @@ nav h1 a {
   padding: 0;
   width: 10em;
 }
+.listbox-label {
+  position: absolute;
+  left: -9999px;
+}
 
 /* ====================== Restaurant Listing ====================== */
 .filter-container {
