@@ -178,10 +178,12 @@ createRestaurantHTML = (restaurant) => {
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
+  neighborhood.setAttribute('tabindex', '0');
   container.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  address.setAttribute('tabindex', '0');
   container.append(address);
 
   const more = document.createElement('a');
