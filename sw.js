@@ -1,5 +1,5 @@
-var swCache = 'my-site-cache-v1';
-var urlsToCache = [
+let staticCache = 'cache-v1';
+const urlsToCache = [
   '/',
   '/index.html',
   '/restaurant.html',
@@ -17,38 +17,37 @@ var urlsToCache = [
   '/img/7.jpg',
   '/img/8.jpg',
   '/img/9.jpg',
-  '/img/10.jpg',
-  '/img/1-small.jpg',
-  '/img/2-small.jpg',
-  '/img/3-small.jpg',
-  '/img/4-small.jpg',
-  '/img/5-small.jpg',
-  '/img/6-small.jpg',
-  '/img/7-small.jpg',
-  '/img/8-small.jpg',
-  '/img/9-small.jpg',
-  '/img/10-small.jpg'
-  ];
+  '/img/10.jpg'];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(swCache)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-      .catch((err) => {
-            console.log(`An error occurred: ${err}`);
-        })
+    caches.open(staticCache)
+    .then((cache) => {
+      return cache.addAll(urlsToCache);
+    })
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys()
+    .then( (cacheNames) => {
+      return Promise.all(
+        cacheNames.filter( (cacheName) => {
+          return cacheName.startsWith('cache-') && cacheName != staticCache;
+        }).map( (cacheName) => {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+});
+
+self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
-        // Cache hit - return response
-        if (response) {
+      .then((response) => {
+        if(response) {
           return response;
         }
         return fetch(event.request);
