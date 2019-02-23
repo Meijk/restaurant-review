@@ -7,6 +7,6 @@ The **Restaurant Reviews** project offers the user an overview over selected res
 ### Getting started
 
 To inspect **Restaurant Reviews**
-	1. download unzip and the repo from https://github.com/Meijk/restaurant-reviews.git
+	1. download and unzip the repo from https://github.com/Meijk/restaurant-reviews.git
 	2. Launch 'python -m SimpleHTTPServer 8000' for Python 2 and 'python3 -m http.server 8000' for Python 3 from inside the main directory
 	3. Visit http://localhost:8000 in your browser
